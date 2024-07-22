@@ -304,7 +304,7 @@ html_content = f"""
 """
 
 # Guardar el contenido HTML en un archivo
-with open("predicciones.html", "w") as file:
+with open("index.html", "w") as file:
     file.write(html_content)
 
-print("Archivo predicciones.html creado con éxito.")
+print("Archivo index.html creado con éxito.")
