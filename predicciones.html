@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predicciones de Ingresos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f0f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #004d99;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+        h2 {
+            color: #004d99;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+        .grid-item {
+            text-align: center;
+        }
+        .grid-item p {
+            text-align: center;
+            padding: 0 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #004d99;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .highlight-top3 {
+            background-color: #FFD700;
+        }
+        .highlight-bottom3 {
+            background-color: #FFB6C1;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predicciones de Ingresos Mensuales</h1>
+        <div class="grid-container">
+            <div class="grid-item">
+                <h2>ARIMA</h2>
+                <img src="income_predictions_arima.png" alt="Income Predictions with ARIMA">
+                <p>El modelo ARIMA predice los ingresos futuros basándose en el patrón y las tendencias de los ingresos históricos.</p>
+            </div>
+            <div class="grid-item">
+                <h2>Holt-Winters</h2>
+                <img src="income_predictions_hw.png" alt="Income Predictions with Holt-Winters">
+                <p>Este modelo es adecuado para datos con tendencias y patrones estacionales, y predice los ingresos futuros considerando estos componentes.</p>
+            </div>
+            <div class="grid-item">
+                <h2>LSTM</h2>
+                <img src="income_predictions_lstm.png" alt="Income Predictions with LSTM">
+                <p>LSTM predice los ingresos futuros al aprender patrones complejos en los datos históricos.</p>
+            </div>
+            <div class="grid-item">
+                <h2>Prophet</h2>
+                <img src="income_predictions_prophet.png" alt="Income Predictions with Prophet">
+                <p>Prophet es un modelo desarrollado por Facebook para la predicción de series temporales con datos históricos, utilizando componentes aditivos y multiplicativos.</p>
+            </div>
+            <div class="grid-item">
+                <h2>SARIMA</h2>
+                <img src="income_predictions_sarima.png" alt="Income Predictions with SARIMA">
+                <p>SARIMA es una extensión del modelo ARIMA que soporta la estacionalidad, útil para series temporales con patrones estacionales claros.</p>
+            </div>
+            <div class="grid-item">
+                <h2>Ridge</h2>
+                <img src="income_predictions_ridge.png" alt="Income Predictions with Ridge">
+                <p>Ridge Regression es una técnica de regresión lineal que utiliza regularización para manejar la multicolinealidad entre variables predictoras.</p>
+            </div>
+            <div class="grid-item">
+                <h2>Random Forest</h2>
+                <img src="income_predictions_random_forest.png" alt="Income Predictions with Random Forest">
+                <p>Random Forest es un método de aprendizaje conjunto para la clasificación y la regresión que construye múltiples árboles de decisión durante el entrenamiento y da como salida la media de las predicciones de los árboles individuales.</p>
+            </div>
+        </div>
+        <h2>Explicación de las Líneas de Train y Test</h2>
+        <p>Las líneas de "Train" (azul) representan los datos históricos utilizados para entrenar los modelos predictivos. Las líneas de "Test" (naranja) representan los datos reales utilizados para evaluar la precisión de las predicciones de los modelos. Las líneas de "Predicted" (verde) muestran las predicciones de ingresos futuros generadas por cada modelo.</p>
+        <h2>Predicciones de Modelos</h2>
+        <table>
+            <tr>
+                <th>Fecha</th>
+                <th>ARIMA</th>
+                <th>Holt-Winters</th>
+                <th>LSTM</th>
+                <th>Prophet</th>
+                <th>SARIMA</th>
+                <th>Ridge</th>
+                <th>Random Forest</th>
+                <th>Promedio</th>
+            </tr>
+            <tr><td>2023-01</td><td class="highlight-top3" >10,260</td><td  >9,994</td><td class="highlight-top3" >9,810</td><td  >9,497</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td class="highlight-top3" >9,068</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,893</td></tr><tr><td>2023-02</td><td  class="highlight-bottom3">9,549</td><td  class="highlight-bottom3">7,653</td><td  >9,675</td><td  class="highlight-bottom3">6,493</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td class="highlight-top3" >9,047</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,005</td></tr><tr><td>2023-03</td><td  class="highlight-bottom3">9,704</td><td  class="highlight-bottom3">7,445</td><td  class="highlight-bottom3">9,250</td><td  >8,407</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td class="highlight-top3" >9,026</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,207</td></tr><tr><td>2023-04</td><td  class="highlight-bottom3">9,460</td><td  >10,346</td><td  >9,671</td><td class="highlight-top3" >10,530</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td  >9,005</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,947</td></tr><tr><td>2023-05</td><td class="highlight-top3" >10,164</td><td  >9,819</td><td  >9,532</td><td  >8,460</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td  >8,983</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,654</td></tr><tr><td>2023-06</td><td class="highlight-top3" >10,129</td><td  >10,518</td><td  class="highlight-bottom3">9,473</td><td  class="highlight-bottom3">7,701</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td  >8,962</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,629</td></tr><tr><td>2023-07</td><td  >9,892</td><td  >10,010</td><td  >9,726</td><td class="highlight-top3" >10,728</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td  >8,941</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,988</td></tr><tr><td>2023-08</td><td  >9,922</td><td class="highlight-top3" >10,856</td><td class="highlight-top3" >9,806</td><td class="highlight-top3" >10,465</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td  >8,920</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>10,084</td></tr><tr><td>2023-09</td><td  >9,809</td><td class="highlight-top3" >10,840</td><td class="highlight-top3" >9,787</td><td  class="highlight-bottom3">6,591</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td  >8,898</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,506</td></tr><tr><td>2023-10</td><td  >9,904</td><td  >9,811</td><td  class="highlight-bottom3">9,441</td><td  >9,337</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td  class="highlight-bottom3">8,877</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,713</td></tr><tr><td>2023-11</td><td  >9,966</td><td class="highlight-top3" >10,628</td><td  >9,547</td><td  >8,470</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td  class="highlight-bottom3">8,856</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,727</td></tr><tr><td>2023-12</td><td  >9,921</td><td  class="highlight-bottom3">8,259</td><td  >9,672</td><td  >9,729</td><td class="highlight-top3" class="highlight-bottom3">9,589</td><td  class="highlight-bottom3">8,835</td><td class="highlight-top3" class="highlight-bottom3">11,031</td><td>9,577</td></tr><tr><td><strong>Total</strong></td><td><strong>118,680</strong></td><td><strong>116,179</strong></td><td><strong>115,390</strong></td><td><strong>106,408</strong></td><td><strong>115,068</strong></td><td><strong>107,418</strong></td><td><strong>132,372</strong></td><td><strong>115,930</strong></td></tr>
+        </table>
+        
+<h2>Análisis de Resultados</h2>
+<p>Los diferentes modelos predictivos muestran una variabilidad significativa en sus predicciones de ingresos futuros. A continuación, se presentan algunos puntos destacados del análisis:</p>
+<ul>
+    <li><strong>ARIMA:</strong> Este modelo sigue de cerca las tendencias históricas, pero puede no capturar adecuadamente las fluctuaciones estacionales.</li>
+    <li><strong>Holt-Winters:</strong> Este modelo maneja bien los datos con tendencias y estacionalidades, proporcionando predicciones más ajustadas en comparación con ARIMA.</li>
+    <li><strong>LSTM:</strong> Como red neuronal, LSTM puede capturar patrones complejos en los datos, aunque su desempeño puede variar dependiendo de la calidad y cantidad de datos de entrenamiento.</li>
+    <li><strong>Prophet:</strong> Prophet es robusto y maneja bien cambios estacionales y tendencias no lineales, mostrando predicciones consistentes.</li>
+    <li><strong>SARIMA:</strong> Este modelo es una extensión de ARIMA que maneja la estacionalidad, y se comporta bien en series temporales con patrones estacionales claros.</li>
+    <li><strong>Ridge Regression:</strong> La regresión Ridge maneja la multicolinealidad entre las variables predictoras, pero puede no capturar patrones no lineales tan efectivamente como otros modelos.</li>
+    <li><strong>Random Forest:</strong> Este modelo de aprendizaje conjunto proporciona predicciones robustas al combinar múltiples árboles de decisión, aunque puede ser menos efectivo en series temporales con fuertes patrones estacionales.</li>
+</ul>
+<p>En general, los modelos que consideran componentes estacionales (como Holt-Winters y SARIMA) tienden a proporcionar predicciones más precisas para los datos con patrones estacionales marcados. Los modelos de aprendizaje automático (como LSTM y Random Forest) pueden capturar patrones más complejos, pero su efectividad depende en gran medida de la calidad y cantidad de datos de entrenamiento.</p>
+
+    </div>
+</body>
+</html>
